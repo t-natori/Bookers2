@@ -2,14 +2,14 @@
 
 <%= form_with model: @user do |f| %>
 
-    <h4>Name</h4>
-    <%= f.text_field :name %>
+    <label for="inputName">Name</label><br>
+    <%= f.text_field :name, autofocus: true, id:"inputName" %><br>
 
-    <h4>Image</h4>
-    <%= f.file_field :image, accept: "image/*" %>
+    <label for="inputImage">Image</label><br>
+    <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %><br>
 
-    <h4>Introduction</h4>
-    <%= f.text_area :body %><br>
+    <label for="inputIntroduction">Introduction</label><br>
+    <%= f.text_area :body, id:"inputIntroduction", placehilder:"自己紹介文"%><br><br>
 
     <%= f.submit 'Update User' %>
 
