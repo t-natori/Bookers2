@@ -1,6 +1,6 @@
 <h1>Users info</h1>
 
-<%= form_with model: @user do |f| %>
+<%= form_with model: @user, url: edit_user_path(@user.id), method: :patch do |f| %>
 
     <label for="inputName">Name</label><br>
     <%= f.text_field :name, autofocus: true, id:"inputName" %><br>
@@ -9,7 +9,7 @@
     <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %><br>
 
     <label for="inputIntroduction">Introduction</label><br>
-    <%= f.text_area :body, id:"inputIntroduction", placehilder:"自己紹介文"%><br><br>
+    <%= f.text_area :introduction, id:"inputIntroduction", placehilder:"自己紹介文"%><br>
 
     <%= f.submit 'Update User' %>
 

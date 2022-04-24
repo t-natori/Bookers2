@@ -1,19 +1,4 @@
-<h1>User info</h1>
-<%= image_tag user.get_profile_image(100,100) %>
-<table>
-    <tbody>
-        <tr>
-            <td>name</td>
-            <td><%= current_user.name %></td>
-        </tr>
-        <tr>
-            <td>introducrion</td>
-            <td>body</td>
-        </tr>
-    </tbody>
-</table>
-<%= link_to "User編集", edit_user_path(current_user) %>             
-            
+    
 <h1>New book</h1>
 <%= form_with model: book do |f| %>
 <h4>Title</h4>
