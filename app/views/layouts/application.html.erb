@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
@@ -31,7 +33,7 @@
           <%= link_to "Home", root_path %>
         </li>
         <li>
-          <%= link_to "About", homes_about_path %>
+          <%= link_to "About", home_about_path %>
         </li>
         <li>
           <%= link_to "Sign up", new_user_registration_path %>
@@ -44,7 +46,10 @@
       
     </heder>
     
+    <p class="notice"><%= notice %></p>
+    
     <%= yield %>
+    
     <footer>
       <p>CopyRight Infratop.inc</p>
     </footer>
