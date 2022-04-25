@@ -1,25 +1,40 @@
-<h1>Editing Book</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 mx-auto">
+      <h1>Editing Book</h1>
+      
+      <% if @book.errors.any? %>
+        <h3><%= @book.errors.count %>error prohibited this obj from being saved:</h3>
+          <ul>
+              <% @book.errors.full_messages.each do |message| %>
+              　　<li><%= message %></li>
+              <% end %>
+          </ul>
+      <% end %>
+      
+      <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
+        <div class="form-group">
+          <div class="field_with_errors">
+            <label for="book_title">Title</label> 
+          </div>
+          <div class="field_with_errors">
+            <%= f.text_field :title, autofocus: true, class:"form-control book_title", id:"book_title" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="book_opinion">Opinion</label>
+          <div class="firld_with_errors">
+            <%= f.text_area :body, class:"form-control book_body", id:"book_body" %><br>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.submit 'Update Book', class:"btn btn-success" %><br>
+        </div>
+        <%= link_to 'Show', book_path(@book.id) %>
+        |
+        <%= link_to 'Back', books_path, class:"back" %>
+      <% end %>
 
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>error prohibited this obj from being saved:
-    <ul>
-        <% @book.errors.full_messages.each do |message| %>
-        　　<li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-<%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
-
-    <h4>Title</h4>
-    <%= f.text_field :title, autofocus: true %>
-
-    <h4>Opinion</h4>
-    <%= f.text_area :body %><br>
-    
-    <%= f.submit 'Update Book' %><br>
-
-
-<%= link_to 'Show', book_path(@book.id) %>
-<%= link_to 'Back', books_path %>
-<% end %>
+    </div>
+  </div>
+</div>
