@@ -9,37 +9,61 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e8a13719a6.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <heder>
       <%= link_to "Bookers11111111", root_path %>
       <% if user_signed_in? %>
-        <li>
-          <%= link_to "Home", user_path(current_user.id) %>
+        <li class="nav-list">
+          <%= link_to user_path(current_user.id) do %>
+            <i class="fas fa-home"></i>
+            Home
+          <% end %>
         </li>
-        <li>
-          <%= link_to "Users", users_path %>
+        <li class="nav-list">
+          <%= link_to users_path do %>
+          <i class="fas fa-users"></i>
+          Users
+          <% end %>
         </li>
-        <li>
-          <%= link_to "Books", books_path %>
+        <li class="nav-list">
+          <%= link_to books_path do %>
+          <i class="fas fa-book-open"></i>
+          Books
+          <% end %>
         </li>
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <li class="nav-list">
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fas fa-sign-out-alt"></i>
+          Log out
+          <% end %>
         </li>
       <% else %>
-        <li>
-          <%= link_to "Home", root_path %>
+        <li class="nav-list">
+          <%= link_to root_path do %>
+          <i class="fas fa-home"></i>
+          Home
+          <% end %>
         </li>
-        <li>
-          <%= link_to "About", home_about_path %>
+        <li class="nav-list">
+          <%= link_to home_about_path do %>
+          <i class="fas fa-link"></i>
+          About
+          <% end %>
         </li>
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
+        <li class="nav-list">
+          <%= link_to new_user_registration_path do %>
+          <i class="fas fa-user-plus"></i>
+          Sign up
+          <% end %>
         </li>
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
+        <li class="nav-list">
+          <%= link_to new_user_session_path do %>
+          <i class="fas fa-sign-in-alt"></i>
+          Log in
+          <% end %>
         </li>
       <% end %>
         
