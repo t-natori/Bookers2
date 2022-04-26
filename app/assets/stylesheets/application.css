@@ -22,4 +22,7 @@ box-sizing: border-box;
 .nav-list {
     list-style: none;
 }
+.header {
+margin: 50px;
+}
     
